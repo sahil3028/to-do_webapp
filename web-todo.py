@@ -41,5 +41,5 @@ for index,todo in enumerate(todos):
         save_todo()
         st.rerun()
 
-
+st.session_state["new"]=""
 st.text_input(label="  ",placeholder="add a new Task....",on_change=add_task,key="new")
