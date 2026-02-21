@@ -1,7 +1,11 @@
 import streamlit as st
+from PIL import Image, ImageOps
+from playsound3 import playsound
 import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 FILE_PATH = os.path.join(BASE_DIR, "todos.txt")
+MUSIC_PATH = os.path.join(BASE_DIR, "fah.mp3")
+
 
 if not os.path.exists(FILE_PATH):
     with open(FILE_PATH,'w'):
@@ -43,3 +47,19 @@ for index,todo in enumerate(todos):
 
 st.session_state["new"]=""
 st.text_input(label="  ",placeholder="add a new Task....",on_change=add_task,key="new")
+
+
+with st.expander("click your happy picture"):
+    camera=st.camera_input("Camera")
+
+
+print(camera)
+
+if camera:
+    img=Image.open(camera)
+
+    gray_img=img.convert("L")
+    colorized = ImageOps.colorize(gray_img, black="blue", white="yellow")
+
+    st.image(gray_img)
+    playsound(MUSIC_PATH)
