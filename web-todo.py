@@ -62,4 +62,4 @@ if camera:
     colorized = ImageOps.colorize(gray_img, black="blue", white="yellow")
 
     st.image(gray_img)
-    playsound(MUSIC_PATH)
+    playsound("fah.mp3")
