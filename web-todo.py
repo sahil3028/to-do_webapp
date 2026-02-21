@@ -43,6 +43,3 @@ for index,todo in enumerate(todos):
 
 
 st.text_input(label="  ",placeholder="add a new Task....",on_change=add_task,key="new")
-
-st.session_state
-print("iss2")
