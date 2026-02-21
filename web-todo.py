@@ -62,4 +62,5 @@ if camera:
     colorized = ImageOps.colorize(gray_img, black="blue", white="yellow")
 
     st.image(gray_img)
-    playsound("fah.mp3")
+    with open(MUSIC_PATH, "rb") as f:
+        st.audio(f.read(), format="audio/mp3")
